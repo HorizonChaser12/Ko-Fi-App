@@ -31,7 +31,6 @@ Here's the updated section for the README file based on recent changes made to t
 
 ---
 
-For more details, visit the [Ko-Fi App repository](https://github.com/HorizonChaser12/Ko-Fi-App).
 
 ## Features
 
