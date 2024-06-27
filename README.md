@@ -6,6 +6,33 @@ A Flutter application for managing a coffee shop.
 
 The Ko-Fi App is a mobile application built using Flutter to help users browse and purchase coffee. The app includes features such as viewing different types of coffee, adding items to a cart, and completing purchases.
 
+Here's the updated section for the README file based on recent changes made to the Ko-Fi App:
+
+---
+
+## Updates
+
+### June 2024
+
+- **Added Coffee Selection and Cart Functionality:**
+  - Implemented `CoffeeWithSize` class to handle different coffee sizes.
+  - Added a selection page (`SelectionPage`) for choosing coffee size and quantity.
+  - Updated `CartPage` to display selected coffee items with size and quantity.
+  - Added `addItemToCart` and `removeItemFromCart` methods in `CoffeeShop` model.
+
+- **UI Improvements:**
+  - Enhanced `CoffeeTile` component for better visual representation.
+  - Implemented Lottie animations for a dynamic user experience.
+  - Improved cart UI to display an empty cart message when no items are present.
+
+- **Bug Fixes:**
+  - Corrected pricing display issue by ensuring proper formatting in `CoffeeTile`.
+  - Fixed context-related bugs in cart operations.
+
+---
+
+For more details, visit the [Ko-Fi App repository](https://github.com/HorizonChaser12/Ko-Fi-App).
+
 ## Features
 
 - Browse a variety of coffee options from selection page
