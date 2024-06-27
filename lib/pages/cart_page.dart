@@ -1,5 +1,5 @@
 import 'package:coffee_shop_app/components/coffee_tile.dart';
-import 'package:coffee_shop_app/models/coffee.dart';
+import 'package:coffee_shop_app/models/coffee_with_size.dart';
 import 'package:coffee_shop_app/models/coffee_shop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,12 +12,29 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  void removeFromCart(Coffee coffee) {
+  void removeFromCart(CoffeeWithSize coffee) {
     Provider.of<CoffeeShop>(context, listen: false).removeItemFromCart(coffee);
   }
 
   void payNow() {
-    // Payment Function which will be implemented later on.
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Payment Complete"),
+          content: const Text(
+              "Your payment is complete and your order has been placed."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -35,12 +52,35 @@ class _CartPageState extends State<CartPage> {
               const SizedBox(
                 height: 20,
               ),
+              if (value.userCart.isEmpty)
+                Container(
+                  width: 400,
+                  height: 400,
+                  alignment: Alignment.center,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Your cart is empty for now 😔",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        "Order now!",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
               Expanded(
                 child: ListView.builder(
                   itemCount: value.userCart.length,
                   itemBuilder: (context, index) {
                     // Get individual Coffee
-                    Coffee eachCoffee = value.userCart[index];
+                    CoffeeWithSize eachCoffee = value.userCart[index];
                     // Return the tile for this coffee
                     return CoffeeTile(
                       coffee: eachCoffee,
@@ -52,13 +92,15 @@ class _CartPageState extends State<CartPage> {
               ),
               // A Pay Button
               GestureDetector(
-                onTap: () => payNow,
+                onTap: value.userCart.isNotEmpty ? payNow : null,
                 child: Container(
                   padding: const EdgeInsets.all(10.0),
                   width: double.infinity,
                   height: 70,
                   decoration: BoxDecoration(
-                      color: Colors.brown,
+                      color: value.userCart.isNotEmpty
+                          ? Colors.brown
+                          : Colors.grey,
                       borderRadius: BorderRadius.circular(12)),
                   child: const Center(
                     child: Text(

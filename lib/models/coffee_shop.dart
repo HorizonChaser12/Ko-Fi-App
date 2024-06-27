@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'coffee.dart';
+import 'coffee_with_size.dart';
 
 class CoffeeShop extends ChangeNotifier {
   final List<Coffee> _shop = [
@@ -32,22 +33,24 @@ class CoffeeShop extends ChangeNotifier {
   ];
 
   // User Cart
-  final List<Coffee> _userCart = [];
+  final List<CoffeeWithSize> _userCart = [];
 
   // Get coffee list
   List<Coffee> get coffeeShop => _shop;
 
   // Get user cart
-  List<Coffee> get userCart => _userCart;
+  List<CoffeeWithSize> get userCart => _userCart;
 
   // add item to cart
-  void addItemToCart(Coffee coffee) {
-    _userCart.add(coffee);
+  void addItemToCart(CoffeeWithSize coffee, int amount) {
+    for (int i = 0; i < amount; i++) {
+      _userCart.add(coffee);
+    }
     notifyListeners();
   }
 
   // remove item from cart
-  void removeItemFromCart(Coffee coffee) {
+  void removeItemFromCart(CoffeeWithSize coffee) {
     _userCart.remove(coffee);
     notifyListeners();
   }

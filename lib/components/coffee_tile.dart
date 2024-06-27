@@ -1,12 +1,13 @@
-import 'package:coffee_shop_app/models/coffee.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:coffee_shop_app/models/coffee_with_size.dart';
 
 // ignore: must_be_immutable
 class CoffeeTile extends StatelessWidget {
-  final Coffee coffee;
+  final CoffeeWithSize coffee;
   void Function()? onPressed;
   final Icon icon;
+
   CoffeeTile(
       {super.key,
       required this.coffee,
@@ -26,7 +27,7 @@ class CoffeeTile extends StatelessWidget {
         title: Text(
           coffee.name,
         ),
-        subtitle: Text(coffee.price),
+        subtitle: Text('${coffee.price}, ${coffee.size}'),
         leading: SizedBox(
           width: 100,
           child: SizedBox.expand(

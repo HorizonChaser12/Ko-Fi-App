@@ -10,9 +10,10 @@ class MyBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(25),
+      color: Colors.grey.shade300,
       child: GNav(
         onTabChange: (value) => onTabChange!(value),
-        color: Colors.grey[400],
+        color: Colors.grey[500],
         mainAxisAlignment: MainAxisAlignment.center,
         activeColor: Colors.grey[700],
         tabBackgroundColor: Colors.grey.shade300,
