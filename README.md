@@ -1,10 +1,8 @@
 # Ko-Fi_App
 
 A Flutter application for managing a coffee shop.
-
-## Overview
-
-The Ko-Fi App is a mobile application built using Flutter to help users browse and purchase coffee. The app includes features such as viewing different types of coffee, adding items to a cart, and completing purchases.
+The Ko-Fi App is a mobile application built using Flutter to help users browse and purchase coffee. The app includes features such as viewing different types of coffee, adding items to a cart, and completing purchases.It's one of the starting episode on my Flutter Journey.Hope to update it more and work upon more apps.
+Kudos✌️🕊️! 
 
 
 ## Updates
